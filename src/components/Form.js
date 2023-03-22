@@ -7,7 +7,7 @@ import Summary from "./Summary";
 const Form = () => {
   const titles = ["YOUR INFO", "SELECT PLAN", "ADD-ONS", "SUMMARY"];
   const [controlStep, setControlStep] = useState(0);
-  console.log(useState);
+
   let i = 0;
 
   function stepController() {
@@ -87,10 +87,13 @@ const Form = () => {
           ) : (
             ""
           )}
-
-          <button onClick={handleForwardClick} className="next-step-button">
-            Next Step
-          </button>
+          {controlStep !== titles.length - 1 ? (
+            <button onClick={handleForwardClick} className="next-step-button">
+              Next Step
+            </button>
+          ) : (
+            <button className="submit-button">Submit</button>
+          )}
         </div>
       </div>
     </div>
