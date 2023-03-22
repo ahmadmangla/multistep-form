@@ -1,28 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FormContext } from "../context/FormContext";
 
 const Summary = () => {
+  const { data, setData } = useContext(FormContext);
   return (
     <>
       <div className="form-title">
         <h1>Summary</h1>
-        <p>Please Provide your name, email address and phone number</p>
       </div>
       <form action="">
         <div className="form-item">
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" placeholder="e.g Stphen King" />
+          <span>{data.name}</span>
         </div>
         <div className="form-item">
           <label htmlFor="email">Email Address</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="e.g Stphenking@gmail.com"
-          />
+          <span>{data.email}</span>
         </div>
         <div className="form-item">
           <label htmlFor="phone">Phone Number</label>
-          <input type="text" name="phone" placeholder="e.g +1 2334 343434" />
+          <span>{data.phone}</span>
+        </div>
+        <div className="form-item">
+          <label htmlFor="phone">Selected Plan</label>
+          <span>{data.selectedPlan}</span>
         </div>
       </form>
     </>

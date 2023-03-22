@@ -6,6 +6,7 @@ const FormProvider = ({ children }) => {
     name: "",
     email: "",
     phone: "",
+    selectedPlan: "",
   });
   return <FormContext.Provider value={{ data, setData }}>{children}</FormContext.Provider>;
 };

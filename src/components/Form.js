@@ -5,7 +5,7 @@ import SelectPlan from "./SelectPlan";
 import Summary from "./Summary";
 
 const Form = () => {
-  const titles = ["YOUR INFO", "SELECT PLAN", "ADD-ONS", "SUMMARY"];
+  const titles = ["YOUR INFO", "SELECT PLAN", "SUMMARY"];
   const [controlStep, setControlStep] = useState(0);
 
   let i = 0;
@@ -15,8 +15,6 @@ const Form = () => {
       return <PersonalInfo />;
     } else if (titles[controlStep] === "SELECT PLAN") {
       return <SelectPlan />;
-    } else if (titles[controlStep] === "ADD-ONS") {
-      return <AddOn />;
     } else if (titles[controlStep] === "SUMMARY") {
       return <Summary />;
     }
