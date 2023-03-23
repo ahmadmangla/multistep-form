@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import AddOn from "./AddOn";
+import React, { useContext, useState } from "react";
+import { FormContext } from "../context/FormContext";
 import PersonalInfo from "./PersonalInfo";
 import SelectPlan from "./SelectPlan";
 import Summary from "./Summary";
 
 const Form = () => {
+  const { data } = useContext(FormContext);
   const titles = ["YOUR INFO", "SELECT PLAN", "SUMMARY"];
   const [controlStep, setControlStep] = useState(0);
+  const [error, setError] = useState(false);
 
   let i = 0;
 
@@ -21,7 +23,12 @@ const Form = () => {
   }
 
   function handleForwardClick() {
+    if (data.name === "" || data.email === "" || data.phone === "") {
+      setError(true);
+      return;
+    }
     if (controlStep !== titles.length - 1) {
+      setError(false);
       setControlStep(controlStep + 1);
     }
   }
@@ -77,13 +84,12 @@ const Form = () => {
       </div>
       <div className="main-form">
         {stepController()}
+        {error && <p className="error">Please fill all the fields!</p>}
         <div className="buttons">
-          {controlStep !== 0 ? (
+          {controlStep !== 0 && (
             <button onClick={handleBackwardClick} className="prev-step-button">
               Prevous Step
             </button>
-          ) : (
-            ""
           )}
           {controlStep !== titles.length - 1 ? (
             <button onClick={handleForwardClick} className="next-step-button">

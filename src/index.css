@@ -128,7 +128,7 @@ ul li {
 
 .container .side-bar {
   padding: 2rem 5rem 2rem 2rem;
-  background-image: url("https://i.pinimg.com/originals/e3/80/63/e38063bb9dfbbf24b06e1c622e2ba989.png");
+  background-image: url("./images/bg-image.png");
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 5px;
@@ -136,9 +136,15 @@ ul li {
 
 .container .step-item .step-number {
   border: 2px solid white;
-  padding: 6px 13px;
-  border-radius: 50% 50%;
+  /* padding: 1rem; */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   font-weight: 500;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container .step-item div {
@@ -168,6 +174,7 @@ ul li {
   border-radius: 5px;
   margin-bottom: 1rem;
   cursor: pointer;
+  flex-wrap: wrap;
 }
 
 .container .main-form .plans-container .plan.active {
@@ -256,10 +263,22 @@ ul li {
   cursor: pointer;
 }
 
-@media screen and (max-width: 570px) {
+.error {
+  color: #bb0000;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 990px) {
   .container .main-form {
     padding: 2rem;
     min-width: 100%;
     margin: 0 auto;
+  }
+  .container {
+    flex-grow: 1;
+    flex-wrap: wrap;
+  }
+  .container .side-bar {
+    width: 100%;
   }
 }
