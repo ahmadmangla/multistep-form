@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { FormContext } from "../context/FormContext";
 
 const Summary = () => {
-  const { data, setData } = useContext(FormContext);
+  const { data } = useContext(FormContext);
   return (
     <>
       <div className="form-title">
